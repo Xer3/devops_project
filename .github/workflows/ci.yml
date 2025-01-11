@@ -28,8 +28,10 @@ jobs:
 
     - name: Build Docker Image
       run: docker build -t flask-app .
-      
-    - name: Run security scan with Trivy
+
+        - name: Run security scan with Trivy
       run: |
         curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
-        trivy image flask-app
+        export PATH=$PATH:$(pwd)/bin
+        ./trivy image flask-app
+
