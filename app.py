@@ -6,5 +6,9 @@ app = Flask(__name__)
 def home():
     return "Hello, CI/CD!"
 
+@app.route('/about')
+def about():
+    return "This is a simple Flask app for DevOps."
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
